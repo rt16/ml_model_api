@@ -13,7 +13,7 @@ CORS(app, support_credentials=True)
 @app.route('/predict', methods=['GET'])
 @cross_origin(supports_credentials=True)
 def predict():
-    if lr:
+    
         try:            
             return 'Hello World'
         
@@ -21,9 +21,7 @@ def predict():
         except:
 
             return jsonify({'trace': traceback.format_exc()})
-    else:
-        print ('Train the model first')
-        return ('No model here to use')
+   
 
 if __name__ == '__main__':
     try:
