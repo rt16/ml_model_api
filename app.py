@@ -16,11 +16,11 @@ def predict():
     if lr:
         try:
            json_ = request.json            
-            query = pd.get_dummies(pd.DataFrame(json_))
-            query = query.reindex(columns=model_columns, fill_value=4)
-            print(query)
-            prediction = list(lr.predict([json_]))
-            return jsonify({'prediction': str(prediction),"json":json_})
+           query = pd.get_dummies(pd.DataFrame(json_))
+           query = query.reindex(columns=model_columns, fill_value=4)
+           print(query)
+           prediction = list(lr.predict([json_]))
+           return jsonify({'prediction': str(prediction),"json":json_})
         
 
         except:
