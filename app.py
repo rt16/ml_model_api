@@ -9,10 +9,14 @@ from flask_cors import CORS, cross_origin
 # Your API definition 
 app = Flask(__name__)
 CORS(app, support_credentials=True)
-
+lr = joblib.load("model.pkl") # Load "model.pkl"
+print ('Model loaded')
+model_columns = joblib.load("model_columns.pkl") # Load "model_columns.pkl"
+print ('Model columns loaded')
 @app.route('/predict', methods=['POST'])
 @cross_origin(supports_credentials=True)
 def predict():
+    
     if lr:
         try:
            json_ = request.json            
