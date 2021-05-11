@@ -15,7 +15,7 @@ CORS(app, support_credentials=True)
 def predict():
     if lr:
         try:            
-            return ("Hello World")
+            return 'Hello World'
         
 
         except:
