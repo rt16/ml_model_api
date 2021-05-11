@@ -6,7 +6,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn import metrics
 from sklearn import preprocessing
-dataset_url = "home/aarti/Desktop/msc-2/mental_health_flask\stress_data_set.csv"
+dataset_url = "https://github.com/rt16/ml_model_api/blob/main/stress_data_set.csv"
 col_names = ['I found it hard to wind down',
                  'I tended to over-react to situations',
                  'I felt that I was using a lot of nervous energy',
