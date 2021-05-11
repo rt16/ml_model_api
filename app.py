@@ -13,15 +13,22 @@ CORS(app, support_credentials=True)
 @app.route('/predict', methods=['GET'])
 @cross_origin(supports_credentials=True)
 def predict():
-    
-        try:            
-            return 'Hello World'
+    if lr:
+        try:
+           json_ = request.json            
+            query = pd.get_dummies(pd.DataFrame(json_))
+            query = query.reindex(columns=model_columns, fill_value=4)
+            print(query)
+            prediction = list(lr.predict([json_]))
+            return jsonify({'prediction': str(prediction),"json":json_})
         
 
         except:
 
             return jsonify({'trace': traceback.format_exc()})
-   
+    else:
+        print ('Train the model first')
+        return ('No model here to use')
 
 if __name__ == '__main__':
     try:
